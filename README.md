@@ -1,4 +1,4 @@
 # fry
 
-TODO: Enter the cookbook description here.
+This cookbook sets up the server 'fry'
 
