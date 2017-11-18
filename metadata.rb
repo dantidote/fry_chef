@@ -4,7 +4,7 @@ maintainer_email 'dantidote@gmail.com'
 license 'All Rights Reserved'
 description 'Installs/Configures fry'
 long_description 'Installs/Configures fry'
-version '0.1.33'
+version '0.1.34'
 chef_version '>= 12.1' if respond_to?(:chef_version)
 
 depends 'resolver', '~> 2.0'
