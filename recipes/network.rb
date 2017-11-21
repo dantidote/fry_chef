@@ -6,12 +6,14 @@
 
 ifconfig '10.0.1.2' do
 	device 'eno1'
+	mask '255.255.255.0'
 	mtu '9000'
 end
 
 
 ifconfig '10.0.1.3' do
   device 'enp4s0'
+	mask '255.255.255.0'
   mtu '9000'
 end
 
