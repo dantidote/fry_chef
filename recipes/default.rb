@@ -5,7 +5,7 @@
 # Copyright:: 2017, The Authors, All Rights Reserved.
 
 include_recipe 'fry::docker'
-include_recipe 'chef-client::default'
+#include_recipe 'chef-client::default'
 include_recipe 'fry::myresolver'
 include_recipe 'fry::disk'
 include_recipe 'fry::services'
@@ -19,3 +19,4 @@ include_recipe 'fry::storj'
 include_recipe 'fry::gemini'
 include_recipe 'fry::network'
 include_recipe 'fry::users'
+include_recipe 'fry::ssh'
