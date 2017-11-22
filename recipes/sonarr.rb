@@ -6,14 +6,7 @@
 
 package 'docker'
 
-docker_image 'dantidote/sonarr' do
-  tag 'latest'
-  source '/root/docker_sonarr'
-  action :build_if_missing
-end
-
 docker_image 'linuxserver/sonarr'
-
 
 docker_container 'sonarr' do
   repo 'linuxserver/sonarr'
