@@ -9,6 +9,8 @@ package 'docker'
 docker_image 'dantidote/storj' do
   #tag 'latest'
   source '/root/docker_storj'
+  nocache true
+  read_timeout 600
   action :build_if_missing
 end
 
@@ -25,14 +27,14 @@ docker_container 'storj' do
   port '4000-4003:4000-4003'
   user '1009'
   memory '4294967296'
-  memory_swap '8589934592'
+#  memory_swap '8589934592'
 end
 
 docker_container 'storj2' do
   repo 'dantidote/storj'
   entrypoint '/bin/sh'
   tty true
-  env 'HOME=/configs/home'
+  env 'HOME=/configs/home2'
   volumes ['/media/ext1/:/storj/5',
            '/media/ext2/:/storj/6',
            '/media/storage/docker/storj/logs:/logs',
@@ -42,5 +44,19 @@ docker_container 'storj2' do
   port '4004-4005:4004-4005'
   user '1009'
   memory '4294967296'
-  memory_swap '4294967296'
+#  memory_swap '4294967296'
+end
+
+
+bash 'starting storj daemon and farmers' do
+  cwd '/media/storage/docker/storj'
+  code './start_storjshare.sh'
+  not_if "test $(docker exec storj /usr/bin/storjshare status | grep running | wc -l) -eq 4 "
+end
+
+
+bash 'starting storj2 daemon and farmers' do
+  cwd '/media/storage/docker/storj'
+  code './start_storjshare.sh'
+  not_if 'test $(docker exec storj2 /usr/bin/storjshare status | grep running | wc -l) -eq 2'
 end

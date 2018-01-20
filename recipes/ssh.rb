@@ -4,6 +4,12 @@
 #
 # Copyright:: 2017, The Authors, All Rights Reserved.
 
+#proxmox workaround
+execute 'delete authorized keys symlink' do
+  command 'rm /root/.ssh/authorized_keys'
+  only_if { File.symlink?('/root/.ssh/authorized_keys') }
+end
+
 ssh_authorize_key 'hermes' do
   key 'AAAAB3NzaC1yc2EAAAABJQAAAQEAqc66AqvoiqAu2QWwQGgj9swLZXjXAjtT/4FRkiVcynfQGDXqZ7s9lgHk9/VUKfB2Mk+XJ8hhEu0j14/UyM6i5HGZogCBLnBKyObQHq4dHjN0XP4oSdqEAGkM7UjrmmhBdLl0EIlgQUVdQQFpoCBBG922iBeDCIkhG1S59qLUls2mtEvpQ2KYUfReXHTMS2Vk1I6pdFhk7Vz4DP9yH72no/VMFADll1zydi1EEadxdSEyMWfW3VdTkC2lsIHaQ3LLQAks0otA7Yp825w+d1b8qaOlAIcOaasjmKemtpMFfoKXpFEJiwC64J04SJgMlfE4xaWbDdWfDYQ1bDnORl9u6Q=='
   user 'dan'
