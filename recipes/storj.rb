@@ -27,7 +27,6 @@ docker_container 'storj' do
   port '4000-4003:4000-4003'
   user '1009'
   memory '4294967296'
-#  memory_swap '8589934592'
 end
 
 docker_container 'storj2' do
@@ -44,7 +43,6 @@ docker_container 'storj2' do
   port '4004-4005:4004-4005'
   user '1009'
   memory '4294967296'
-#  memory_swap '4294967296'
 end
 
 
