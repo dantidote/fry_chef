@@ -16,6 +16,8 @@ include_recipe 'fry::graphite'
 include_recipe 'fry::sab'
 include_recipe 'fry::sonarr'
 include_recipe 'fry::storj'
+include_recipe 'fry::couchpotato'
+
 
 include_recipe 'fry::gemini'
 include_recipe 'fry::network'
