@@ -16,6 +16,6 @@ docker_container 'sab' do
   repo 'dantidote/sab'
   user '1004:1111'
   volumes ['/media/storage/Torrent/:/downloads', '/etc/letsencrypt/:/ssl', '/media/storage/docker/sab/:/config', '/media/storage/Torrent/Incomplete/:/incomplete']
-  port '8080:8080'
+  port '8088:8088'
   restart_policy 'always'
 end

@@ -14,11 +14,21 @@ end
 
 package 'unifi'
 
-service 'unifi' do
-  action [:enable, :start]
+#service 'unifi' do
+#  action [:enable, :start]
+#end
+
+template '/usr/lib/unifi/data/system.properties' do
+  source 'unifi.erb'
+  mode '644'
 end
 
-file '/usr/lib/unifi/data/system.properties' do
-  content 'unifi.https.port=8443'
-  mode '644'
+
+docker_image 'jacobalberty/unifi'
+
+docker_container 'unifi' do
+  repo 'jacobalberty/unifi'
+  port ['8443:8443','3478:3478/udp','10001:10001/udp','8080:8080','8843:8843','8880:8880','6789:6789']
+  env 'TZ=America/Detroit'
+  volumes ['/media/storage/docker/unifi:/unifi']
 end
