@@ -9,6 +9,7 @@ ifconfig '10.0.1.2' do
 	device 'eno1'
 	mtu '9000'
 	mask '255.255.255.0'
+  onboot "true"
 end
 
 
@@ -17,9 +18,9 @@ ifconfig '10.0.1.3' do
   device 'enp4s0'
   mtu '9000'
   mask '255.255.255.0'
+  onboot "true"
 end
 
-route '10.0.1.0/24' do
-	device 'enp4s0'
+route 'default' do
 	gateway '10.0.1.1'
 end
