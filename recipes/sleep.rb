@@ -5,7 +5,7 @@
 # Copyright:: 2018, The Authors, All Rights Reserved.
 
 cron 'sleep' do
-  command 'pm-suspend'
+  command '/usr/sbin/pm-suspend'
   user 'root'
   hour '23'
   minute '30'

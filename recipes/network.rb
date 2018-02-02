@@ -5,22 +5,16 @@
 # Copyright:: 2017, The Authors, All Rights Reserved.
 
 ifconfig '10.0.1.2' do
-  action :enable
+  action [:enable,:add]
 	device 'eno1'
-	mtu '9000'
-	mask '255.255.255.0'
-  onboot "true"
+  bootproto 'dhcp'
+  onboot "yes"
 end
 
 
 ifconfig '10.0.1.3' do
-  action :enable
+  action [:enable,:add]
   device 'enp4s0'
-  mtu '9000'
-  mask '255.255.255.0'
-  onboot "true"
-end
-
-route 'default' do
-	gateway '10.0.1.1'
+  bootproto 'dhcp'
+  onboot "yes"
 end
