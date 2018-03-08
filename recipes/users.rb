@@ -33,3 +33,8 @@ user 'storj' do
 	uid '1009'
 	manage_home true
 end
+
+user 'qbittorrent' do
+	uid '1011'
+	manage_home true
+end
