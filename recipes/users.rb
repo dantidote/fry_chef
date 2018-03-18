@@ -38,3 +38,14 @@ user 'qbittorrent' do
 	uid '1011'
 	manage_home true
 end
+
+user 'radarr' do
+	uid '1012'
+	manage_home true
+end
+
+
+group 'media' do
+	gid 1111
+	members ['mediacenter','dan','sab','nzbdrone','qbittorrent','radarr','couchpotato']
+end
