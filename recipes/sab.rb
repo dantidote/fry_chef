@@ -8,7 +8,7 @@ package 'docker'
 
 docker_image 'dantidote/sab' do
   tag 'latest'
-  source '/root/docker_sab'
+  source '/media/storage/Source/docker_sab'
   action :build_if_missing
 end
 

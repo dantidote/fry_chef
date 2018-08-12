@@ -13,6 +13,6 @@ docker_container 'qbittorrent' do
   volumes ['/media/storage/Torrent:/downloads',
            '/home/qbittorrent/.config/qbittorrent:/config']
   port ['8083:8083', '6881:6881', '6881:6881/udp']
-  env ['WEBUI_PORT=8083','PUID=1011','PGID=1111']
+  env ['WEBUI_PORT=8083','PUID=1011','PGID=1111','UMASK_SET=002']
   restart_policy 'always'
 end
