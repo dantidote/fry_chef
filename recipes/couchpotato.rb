@@ -6,7 +6,10 @@
 
 package 'docker'
 
-docker_image 'linuxserver/couchpotato'
+docker_image 'linuxserver/couchpotato' do
+  tag 'latest'
+  notifies :redeploy, 'docker_container[couchpotato]'
+end
 
 docker_container 'couchpotato' do
   repo 'linuxserver/couchpotato'

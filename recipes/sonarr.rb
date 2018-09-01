@@ -6,7 +6,10 @@
 
 package 'docker'
 
-docker_image 'linuxserver/sonarr'
+docker_image 'linuxserver/sonarr' do
+  tag 'latest'
+  notifies :redeploy, 'docker_container[sonarr]'
+end
 
 docker_container 'sonarr' do
   repo 'linuxserver/sonarr'

@@ -6,7 +6,10 @@
 
 package 'docker'
 
-docker_image 'linuxserver/radarr'
+docker_image 'linuxserver/radarr' do
+  tag 'latest'
+  notifies :redeploy, 'docker_container[radarr]'
+end
 
 docker_container 'radarr' do
   repo 'linuxserver/radarr'

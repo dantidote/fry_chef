@@ -6,7 +6,10 @@
 
 package 'docker'
 
-docker_image 'linuxserver/qbittorrent'
+docker_image 'linuxserver/qbittorrent' do
+  tag 'latest'
+  notifies :redeploy, 'docker_container[qbittorrent]'
+end
 
 docker_container 'qbittorrent' do
   repo 'linuxserver/qbittorrent'
