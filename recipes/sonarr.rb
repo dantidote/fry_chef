@@ -19,4 +19,5 @@ docker_container 'sonarr' do
   volumes ['/media/storage/Torrent/:/downloads', '/etc/letsencrypt/:/ssl', '/dev/rtc:/dev/trc:ro', '/media/storage/TV/:/tv', '/home/nzbdrone/.config/NzbDrone/:/config']
   port '8081:8081'
   restart_policy 'always'
+  memory '1073741824'
 end
