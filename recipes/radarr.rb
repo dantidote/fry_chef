@@ -20,4 +20,5 @@ docker_container 'radarr' do
   volumes ['/media/storage/Torrent/:/downloads', '/etc/letsencrypt/:/ssl', '/dev/rtc:/dev/trc:ro', '/media/storage/Movies/:/movies', '/media/storage/docker/radarr/:/config']
   port '8089:7878'
   restart_policy 'always'
+  memory '1073741824'
 end
