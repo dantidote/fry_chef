@@ -9,6 +9,7 @@ package 'docker'
 docker_image 'linuxserver/sonarr' do
   tag 'latest'
   notifies :redeploy, 'docker_container[sonarr]'
+  notifies :prune, 'docker_image_prune[prune_old_images]'
 end
 
 docker_container 'sonarr' do

@@ -12,4 +12,5 @@ docker_container 'graphite' do
            '/media/storage/docker/graphite/storage-schemas.conf:/opt/graphite/conf/storage-schemas.conf']
   port ['8085:80', '2003-2004:2003-2004', '2023-2024:2023-2024', '8125:8125/udp', '8126:8126']
   restart_policy 'always'
+  notifies :prune, 'docker_image_prune[prune_old_images]'
 end

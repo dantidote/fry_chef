@@ -10,6 +10,7 @@ docker_image 'dantidote/sab' do
   tag 'latest'
   source '/media/storage/Source/docker_sab'
   action :build_if_missing
+  notifies :prune, 'docker_image_prune[prune_old_images]'
 end
 
 docker_container 'sab' do

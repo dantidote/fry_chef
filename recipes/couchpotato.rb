@@ -9,6 +9,7 @@ package 'docker'
 docker_image 'linuxserver/couchpotato' do
   tag 'latest'
   notifies :redeploy, 'docker_container[couchpotato]'
+  notifies :prune, 'docker_image_prune[prune_old_images]'
 end
 
 docker_container 'couchpotato' do

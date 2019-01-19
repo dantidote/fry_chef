@@ -11,4 +11,5 @@ docker_container 'grafana' do
   volumes ['/home/dan/docker/grafana/:/var/lib/grafana']
   port '3000:3000'
   restart_policy 'always'
+  notifies :prune, 'docker_image_prune[prune_old_images]'
 end

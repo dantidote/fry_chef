@@ -4,7 +4,9 @@
 #
 # Copyright:: 2018, The Authors, All Rights Reserved.
 
-docker_image 'jacobalberty/unifi'
+docker_image 'jacobalberty/unifi' do
+  notifies :prune, 'docker_image_prune[prune_old_images]'
+end
 
 docker_container 'unifi' do
   repo 'jacobalberty/unifi'

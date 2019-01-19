@@ -15,6 +15,10 @@ else
   package 'docker'
 end
 
+docker_image_prune 'prune_old_images' do
+  action :nothing
+end
+
 service 'docker' do
   action [:enable, :start]
 end
