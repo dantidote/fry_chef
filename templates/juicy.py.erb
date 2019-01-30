@@ -1,0 +1,25 @@
+import pyjuicenet
+import time
+import os
+import pprint
+
+now = str(time.time())
+
+api = pyjuicenet.Api('<%= node['juicy']['api_key'] %>')
+
+devices = api.get_devices()
+
+for device in devices:
+
+  name = device.name()
+  volts = str(device.getVoltage())
+  amps = str(device.getAmps())
+  watts = str(device.getWatts())
+  temp = str(device.getTemperature())
+  status = device.getStatus()
+
+  os.system("echo " + "juicebox." + name + ".volts" " " + volts + " " + now + " | " + "nc -q0 10.0.1.4 2003")
+  os.system("echo " + "juicebox." + name + ".amps" " " + amps + " " + now + " | " + "nc -q0 10.0.1.4 2003")
+  os.system("echo " + "juicebox." + name + ".watts" " " + watts + " " + now + " | " + "nc -q0 10.0.1.4 2003")
+  os.system("echo " + "juicebox." + name + ".temp" " " + temp + " " + now + " | " + "nc -q0 10.0.1.4 2003")
+  os.system("echo " + "juicebox." + name + ".status" " " + status + " " + now + " | " + "nc -q0 10.0.1.4 2003")

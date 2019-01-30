@@ -20,7 +20,7 @@ include_recipe 'fry::sonarr'
 #include_recipe 'fry::couchpotato'
 include_recipe 'fry::qbittorrent'
 
-include_recipe 'fry::modem_stats'
+#include_recipe 'fry::modem_stats'
 include_recipe 'fry::sleep'
 #include_recipe 'fry::gemini'
 include_recipe 'fry::network'
