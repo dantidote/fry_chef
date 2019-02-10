@@ -6,4 +6,6 @@
 
 node.default['timezone'] = "America/Detroit"
 
-timezone node['timezone']
+link '/etc/localtime' do
+  to "/usr/share/zoneinfo/#{node['timezone']}"
+end
