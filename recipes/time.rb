@@ -6,6 +6,14 @@
 
 node.default['timezone'] = "America/Detroit"
 
-link '/etc/localtime' do
-  to "/usr/share/zoneinfo/#{node['timezone']}"
+if node['chef_packages']['chef']['version'] >= '14.6'  do
+
+  timezone node['timezone']
+
+else
+
+  link '/etc/localtime' do
+    to "/usr/share/zoneinfo/#{node['timezone']}"
+
+  end
 end
